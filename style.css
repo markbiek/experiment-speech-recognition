@@ -9,12 +9,30 @@ main {
 	width: 99vw;
 	height: 99vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
+nav {
+	margin-bottom: 1rem;
+	;
+}
+
 button {
 	font-size: 18px;
+}
+
+label {
+	font-weight: 700;
+}
+
+input {
+	width: 50px;
+}
+
+button#stop {
+	display: none;
 }
 
 #canvas {
@@ -22,4 +40,23 @@ button {
 	height: 500px;
 	border: 1px solid black;
 	margin-left: 1rem;
+}
+
+#output {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+}
+
+#output ul {
+	font-size: 1.25rem;
+}
+
+.msg {
+	font-size: 0.75rem;
+	font-weight: bold;
+}
+
+.msg.error {
+	color: #D2103C;
 }

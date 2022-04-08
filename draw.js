@@ -6,6 +6,14 @@ export default class Draw {
 		this.context = context;
 	}
 
+	clear() {
+		const prevFillStyle = this.context.fillStyle;
+
+		this.context.fillStyle = '#fff';
+		this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+		this.context.fillStyle = prevFillStyle;
+	}
+
 	convertPoint(x, y) {
 		x = this.canvas.width / 2 + x;
 		y = this.canvas.height / 2 - y - 1;
@@ -22,6 +30,7 @@ export default class Draw {
 		const ret1 = this.convertPoint(x1, y1);
 		const ret2 = this.convertPoint(x2, y2);
 		if (!ret1 || !ret2) {
+			console.log('ln, bail', ret1, ret2)
 			return;
 		}
 
@@ -44,10 +53,6 @@ export default class Draw {
 		this.ln(x, y, x - width, y, color);
 		this.ln(x - width, y, x - width, y - height, color);
 		this.ln(x - width, y - height, x, y - height, color);
-	}
-
-	clearBox(x, y, width = 10, height = 10) {
-		this.box(x, y, width, height, '#fff');
 	}
 
 	px(x, y, color = '#000') {
